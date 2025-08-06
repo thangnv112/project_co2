@@ -62,7 +62,7 @@ TELEGRAM_CHAT_ID=your-chat-id
 ## ⚙️ Khởi chạy hệ thống
 
 ```bash
-python3 server2.py 
+python3 server3.py 
 python3 test_data.py # 2 tiến trình khác nhau
 ```
 
