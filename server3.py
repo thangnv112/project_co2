@@ -120,7 +120,7 @@ class DatabaseManager:
                 """
                 CREATE TABLE IF NOT EXISTS thresholds (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    tvoc_max FLOAT DEFAULT 0.5,
+                    tvoc_max FLOAT DEFAULT 70,
                     temp_min FLOAT DEFAULT 18,
                     temp_max FLOAT DEFAULT 30,
                     humidity_min FLOAT DEFAULT 30,
