@@ -965,8 +965,8 @@ HTML_TEMPLATE = """
                     <div class="form-group">
                         <div class="form-control">
                             <label for="tvocMax">TVOC tối đa (ppb)</label>
-                            <input type="number" id="tvocMax" name="tvoc_max" value="0.5" 
-                                   min="0" max="5" step="0.1" />
+                            <input type="number" id="tvocMax" name="tvoc_max" value="70" 
+                                   min="0" max="1000" step="10" />
                         </div>
                     </div>
                 </div>
@@ -1174,7 +1174,7 @@ HTML_TEMPLATE = """
             let status = "status-normal";
             let text = "Bình thường";
 
-            if (sensorType === "tvoc" && value > 0.5) {
+            if (sensorType === "tvoc" && value > 660) {
                 status = "status-danger";
                 text = "Quá cao";
             } else if (sensorType === "temp" && (value < 18 || value > 30)) {
