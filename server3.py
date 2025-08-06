@@ -494,6 +494,7 @@ def on_message(client, userdata, msg):
                 "temperature": temperature,
                 "humidity": humidity,
                 "eco2": eco2,
+                "aqi": aqi,  # Thêm AQI vào dữ liệu gửi đi
                 "timestamp": current_data["timestamp"].strftime("%H:%M:%S"),
                 "alerts": alerts,
             },
@@ -1688,6 +1689,7 @@ def on_socketio_connect():
             "temperature": current_data["temperature"],
             "humidity": current_data["humidity"],
             "eco2": current_data["eco2"],
+            "aqi": current_data["aqi"],
             "timestamp": current_data["timestamp"].strftime("%H:%M:%S"),
             "alerts": [],
         },
