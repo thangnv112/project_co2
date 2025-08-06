@@ -538,22 +538,30 @@ HTML_TEMPLATE = """
         .aqi-excellent {
             background: linear-gradient(45deg, #4CAF50, #45a049) !important;
             color: white !important;
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
         .aqi-good {
             background: linear-gradient(45deg, #8BC34A, #7CB342) !important;
             color: white !important;
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
         }
         .aqi-average {
             background: linear-gradient(45deg, #FFC107, #FFB300) !important;
             color: white !important;
+            transform: scale(1);
+            transition: transform 0.3s ease;
         }
         .aqi-poor {
             background: linear-gradient(45deg, #FF9800, #F57C00) !important;
             color: white !important;
+            animation: pulse 2s infinite;
         }
         .aqi-very-poor {
             background: linear-gradient(45deg, #f44336, #d32f2f) !important;
             color: white !important;
+            animation: pulse 2s infinite;
         }
         
         /* Base Styles */
@@ -1134,35 +1142,42 @@ HTML_TEMPLATE = """
             const statusEl = document.getElementById('aqiStatus');
             let className = '';
             let text = '';
+            let icon = '';
             
             switch(aqi) {
                 case 1:
                     className = 'aqi-excellent';
                     text = 'Excellent';
+                    icon = '🌟';
                     break;
                 case 2:
                     className = 'aqi-good';
                     text = 'Good';
+                    icon = '✨';
                     break;
                 case 3:
                     className = 'aqi-average';
                     text = 'Average';
+                    icon = '⚡';
                     break;
                 case 4:
                     className = 'aqi-poor';
                     text = 'Poor';
+                    icon = '⚠️';
                     break;
                 case 5:
                     className = 'aqi-very-poor';
                     text = 'Very Poor';
+                    icon = '🚨';
                     break;
                 default:
                     className = 'aqi-excellent';
                     text = 'Excellent';
+                    icon = '🌟';
             }
             
             statusEl.className = `sensor-status ${className}`;
-            statusEl.textContent = text;
+            statusEl.innerHTML = `${icon} ${text}`;
         }
         
         // Update sensor status
@@ -1269,7 +1284,7 @@ HTML_TEMPLATE = """
                                 color: "rgba(255, 107, 107, 0.1)",
                             },
                             min: 0,
-                            max: 2,
+                            max: 1000,
                         },
                         y1: {
                             type: "linear",
